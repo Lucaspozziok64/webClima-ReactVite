@@ -15,3 +15,9 @@ box-shadow: 2px 0px 5px 13px rgba(249,249,41,0.75);
   padding: 2px;
   width: 100px;
 }
+
+.card {
+box-shadow: 1px 0px 14px 11px rgba(239,239,239,1);
+-webkit-box-shadow: 1px 0px 14px 11px rgba(239,239,239,1);
+-moz-box-shadow: 1px 0px 14px 11px rgba(239,239,239,1);
+}

@@ -2,7 +2,7 @@
 
 const FormularioClima = () => {
     return (
-      <form className="container d-flex flex-column formulario">
+      <form className="container w-75 d-flex flex-column formulario">
       <div className="d-flex justify-content-center mb-4">
         <label className="form-label" style={{ fontStyle: "italic" }}>
           <strong>Consultar Pais:</strong>
