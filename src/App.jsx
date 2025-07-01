@@ -1,10 +1,14 @@
 import './App.css'
+import Titulo from './components/Titulo'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
 
   return (
     <>
-      <h1>webClima</h1>
+      <main className='container my-3'>
+        <Titulo />
+      </main>
     </>
   )
 }
