@@ -63,6 +63,10 @@ function App() {
           {climas && <InfoClima clima={climas} />}
         </section>}
       </main>
+      <footer className="bg-dark text-center text-white p-1">
+        <p className="mb-0">&copy;Todos los derechos reservados</p>
+        <p className="mb-0">Desarrollado por <a href="http://">Lucas Figueroa</a></p>
+      </footer>
     </>
   );
 }
