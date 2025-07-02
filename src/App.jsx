@@ -12,8 +12,8 @@ function App() {
   const [climas, setClimas] = useState(null);
   const [mostrarSpinner, setMostrarSpinner] = useState(false);
 
-  const miApiKey = (import.meta.env.VITE_API_URLAPI);
   const obtenerCima = async () => {
+  const miApiKey = (import.meta.env.VITE_API_URLAPI);
     
     try {
       const respuesta = await fetch(
