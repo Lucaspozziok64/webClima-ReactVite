@@ -12,10 +12,12 @@ function App() {
   const [climas, setClimas] = useState(null);
   const [mostrarSpinner, setMostrarSpinner] = useState(false);
 
+  const miApiKey = (import.meta.env.VITE_API_URLAPI);
   const obtenerCima = async () => {
+    
     try {
       const respuesta = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${climaCiudad},${climaPais}&lang=es&units=metric&appid=`
+        `https://api.openweathermap.org/data/2.5/weather?q=${climaCiudad},${climaPais}&lang=es&units=metric&appid=${miApiKey}`
       );
       const datos = await respuesta.json();
 
