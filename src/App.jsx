@@ -10,7 +10,7 @@ function App() {
   const [climaPais, setClimaPais] = useState("");
   const [climaCiudad, setClimaCiudad] = useState("");
   const [climas, setClimas] = useState(null);
-  const [mostrarSpinner, setMostrarSpinner] = useState(false)
+  const [mostrarSpinner, setMostrarSpinner] = useState(false);
 
   const obtenerCima = async () => {
     try {
@@ -32,19 +32,30 @@ function App() {
           pais: datos.sys.country,
         };
         setClimas(climaFormateado);
-        setMostrarSpinner(false)
+        setMostrarSpinner(false);
       } else {
-        alert('Pais o ciudad no reconocido')
+        alert("Pais o ciudad no reconocido");
       }
     } catch (error) {
       console.log("Error al obtener el clima:", error);
-    }finally {
-    setMostrarSpinner(false); // Ocultar spinner
-  }
+    } finally {
+      setMostrarSpinner(false); // Ocultar spinner
+    }
   };
 
   return (
     <>
+      <header className="bg-black">
+        <div className="container">
+          <nav className="navbar navbar-expand-lg">
+            <div className="container-fluid">
+              <p className="navbar-brand text-white mb-0" href="#">
+                ClimaApp⛅🌩️🌪️☃️🌡️
+              </p>
+            </div>
+          </nav>
+        </div>
+      </header>
       <main className="container my-3">
         <Titulo />
         <section className="container my-5">
@@ -57,15 +68,21 @@ function App() {
             obtenerCima={obtenerCima}
           />
         </section>
-        {mostrarSpinner ? (<div className="my-3 d-flex justify-content-center">
+        {mostrarSpinner ? (
+          <div className="my-3 d-flex justify-content-center">
             <Spinner animation="grow" variant="ligth" />
-          </div>) :      <section className="container d-flex justify-content-center">
-          {climas && <InfoClima clima={climas} />}
-        </section>}
+          </div>
+        ) : (
+          <section className="container d-flex justify-content-center">
+            {climas && <InfoClima clima={climas} />}
+          </section>
+        )}
       </main>
       <footer className="bg-dark text-center text-white p-1">
         <p className="mb-0">&copy;Todos los derechos reservados</p>
-        <p className="mb-0">Desarrollado por <a href="http://">Lucas Figueroa</a></p>
+        <p className="mb-0">
+          Desarrollado por <a href="http://">Lucas Figueroa</a>
+        </p>
       </footer>
     </>
   );
