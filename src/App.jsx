@@ -15,7 +15,7 @@ function App() {
   const obtenerCima = async () => {
     try {
       const respuesta = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${climaCiudad},${climaPais}&lang=es&units=metric&appid=a18aaf89ecdc6baf3a70d28064366d5b`
+        `https://api.openweathermap.org/data/2.5/weather?q=${climaCiudad},${climaPais}&lang=es&units=metric&appid=`
       );
       const datos = await respuesta.json();
 
