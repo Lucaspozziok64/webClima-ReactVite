@@ -5,6 +5,7 @@ import Titulo from "./components/Titulo";
 import "bootstrap/dist/css/bootstrap.min.css";
 import InfoClima from "./components/InfoClima";
 import { Spinner } from "react-bootstrap";
+import nProgress from "nprogress";
 
 function App() {
   const [climaPais, setClimaPais] = useState("");
@@ -16,6 +17,7 @@ function App() {
   const miApiKey = (import.meta.env.VITE_API_URLAPI);
     
     try {
+      nProgress.start()
       const respuesta = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${climaCiudad},${climaPais}&lang=es&units=metric&appid=${miApiKey}`
       );
@@ -35,13 +37,12 @@ function App() {
         };
         setClimas(climaFormateado);
         setMostrarSpinner(false);
-      } else {
-        alert("Pais o ciudad no reconocido");
       }
     } catch (error) {
       console.log("Error al obtener el clima:", error);
     } finally {
       setMostrarSpinner(false); // Ocultar spinner
+      nProgress.done()
     }
   };
 
@@ -79,6 +80,9 @@ function App() {
             {climas && <InfoClima clima={climas} />}
           </section>
         )}
+         <h4 className="text-white text-center my-2">
+          {climas === null ? "No consulto y/o no encontramos Pais/ciudad" : ""}
+        </h4>
       </main>
       <footer className="bg-dark text-center text-white p-1">
         <p className="mb-0">&copy;Todos los derechos reservados</p>
